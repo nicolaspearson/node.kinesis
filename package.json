@@ -1,30 +1,35 @@
 {
 	"name": "node-api-kinesis",
 	"version": "0.0.1",
-	"description": "This is Node JS Kinesis app, using AWS, Typescript, and MySQL",
+	"description":
+		"This is Node JS Kinesis app, using AWS, Typescript, and MySQL",
 	"main": "./src/index.ts",
 	"engines": {
 		"node": ">=7.6.0"
 	},
 	"author": "Nicolas Pearson",
-	"license": "UNLICENSED",
+	"license": "GPL-3.0+",
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/nicolaspearson/node.kinesis"
 	},
 	"scripts": {
 		"start": "npm run build && npm run watch",
-		"start:debug": "ts-node --inspect=5858 --debug-brk --ignore false ./src/index.ts",
+		"start:debug":
+			"ts-node --inspect=5858 --debug-brk --ignore false ./src/index.ts",
 		"build": "rm -rf ./dist && npm run build:ts && npm run tslint",
 		"build:ts": "tsc --rootDir ./src/",
 		"debug": "npm run build && npm run watch:debug",
 		"serve": "nodemon dist/index.js",
-		"serve:debug": "nodemon --inspect=5858 --debug-brk --ignore false dist/index.js",
+		"serve:debug":
+			"nodemon --inspect=5858 --debug-brk --ignore false dist/index.js",
 		"serve:prod": "NODE_ENV=production npm run serve",
 		"pm2:start:prod": "NODE_ENV=production pm2 start dist/index.js",
 		"pm2:stop:prod": "pm2 stop all",
-		"watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve\"",
-		"watch:debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve:debug\"",
+		"watch":
+			"concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve\"",
+		"watch:debug":
+			"concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve:debug\"",
 		"watch:ts": "tsc -w",
 		"tslint": "tslint -c tslint.json -p tsconfig.json",
 		"clean": "rm -rf node_modules && npm install"
