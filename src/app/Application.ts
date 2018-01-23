@@ -19,9 +19,9 @@ export class Application {
 	public async setupApplication() {
 		this.appLogger.winston.debug('Application: Configuration Started');
 		try {
-			// Setup SDP Kinesis
-			const sdpKinesis: NodeKinesis = Container.get(NodeKinesis);
-			await sdpKinesis.setupNodeKinesis('sdp');
+			// Setup Kinesis for Database 1
+			const database1Kinesis: NodeKinesis = Container.get(NodeKinesis);
+			await database1Kinesis.setupNodeKinesis('database_1');
 			this.appLogger.winston.debug('Application: Server Started');
 		} catch (error) {
 			this.appLogger.winston.error(

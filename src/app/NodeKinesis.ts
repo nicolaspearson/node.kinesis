@@ -105,7 +105,7 @@ export class NodeKinesis {
 					'tablemap'
 				],
 				includeSchema: {
-					onnet: config.get(`server.kinesis.${yamlConfig}.tables`)
+					schema_1: config.get(`server.kinesis.${yamlConfig}.tables`)
 				},
 				serverId: config.get('server.serverId')
 			});

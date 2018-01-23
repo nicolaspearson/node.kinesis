@@ -1,7 +1,7 @@
 server:
   serverId: 100
   db:
-    sdp:
+    database_1:
         connectionLimit: 1
         host: http://localhost:3000
         password: YOUR_PASSWORD
@@ -11,10 +11,10 @@ server:
     region: eu-west-1
     accessKeyId: YOUR_KEY_ID
     secretAccessKey: YOUR_ACCESS_KEY
-    sdp:
+    database_1:
         tables: ['table_1']
         mapping:
             table_1: stream_1
         size:
-            table_!: 500
+            table_1: 500
 
