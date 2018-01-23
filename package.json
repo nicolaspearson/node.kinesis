@@ -1,0 +1,64 @@
+{
+	"name": "node-api-kinesis",
+	"version": "0.0.1",
+	"description": "This is Node JS Kinesis app, using AWS, Typescript, and MySQL",
+	"main": "./src/index.ts",
+	"engines": {
+		"node": ">=7.6.0"
+	},
+	"author": "Nicolas Pearson",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"scripts": {
+		"start": "npm run build && npm run watch",
+		"start:debug": "ts-node --inspect=5858 --debug-brk --ignore false ./src/index.ts",
+		"build": "rm -rf ./dist && npm run build:ts && npm run tslint",
+		"build:ts": "tsc --rootDir ./src/",
+		"debug": "npm run build && npm run watch:debug",
+		"serve": "nodemon dist/index.js",
+		"serve:debug": "nodemon --inspect=5858 --debug-brk --ignore false dist/index.js",
+		"serve:prod": "NODE_ENV=production npm run serve",
+		"pm2:start:prod": "NODE_ENV=production pm2 start dist/index.js",
+		"pm2:stop:prod": "pm2 stop all",
+		"watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve\"",
+		"watch:debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve:debug\"",
+		"watch:ts": "tsc -w",
+		"tslint": "tslint -c tslint.json -p tsconfig.json",
+		"clean": "rm -rf node_modules && npm install"
+	},
+	"dependencies": {
+		"aws-sdk": "~2.145.0",
+		"config": "~1.26.2",
+		"fs": "0.0.1-security",
+		"fs-extra": "~4.0.2",
+		"glob": "~7.1.2",
+		"moment": "^2.18.1",
+		"mysql": "~2.15.0",
+		"reflect-metadata": "~0.1.10",
+		"through2": "~2.0.3",
+		"typedi": "~0.5.2",
+		"winston": "^2.0.0",
+		"zongji": "~0.4.4"
+	},
+	"devDependencies": {
+		"@types/config": "0.0.33",
+		"@types/fs-extra": "~4.0.2",
+		"@types/glob": "~5.0.33",
+		"@types/mysql": "~2.15.1",
+		"@types/node": "~8.0.26",
+		"@types/shelljs": "^0.7.1",
+		"@types/through2": "~2.0.33",
+		"@types/winston": "~2.3.5",
+		"concurrently": "~3.5.0",
+		"js-yaml": "~3.10.0",
+		"nodemon": "~1.11.0",
+		"shelljs": "^0.7.7",
+		"ts-helpers": "~1.1.2",
+		"ts-node": "^3.0.4",
+		"tslint": "~5.7.0",
+		"typescript": "~2.4.2"
+	}
+}
