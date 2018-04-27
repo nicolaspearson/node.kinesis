@@ -3,7 +3,9 @@ export default class Guid {
 		let out = '';
 		for (let i = 0; i < count; i++) {
 			// tslint:disable no-bitwise
-			out += (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+			out += (((1 + Math.random()) * 0x10000) | 0)
+				.toString(16)
+				.substring(1);
 			// tslint:enable no-bitwise
 		}
 		return out;
